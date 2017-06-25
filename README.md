@@ -1,4 +1,9 @@
 
+## Requirements
+
+* [Azure CLI 2.0][az]
+* [NodeJS][n] for generating the parameters file (my utmost apologies)
+
 ## To Do:
 
 * [ ] Deploy Redis
@@ -10,3 +15,7 @@
 ## References:
 
 * https://github.com/Azure-Samples/Cognitive-Speech-STT-JavaScript
+
+
+[az]:
+[n]: 
