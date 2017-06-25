@@ -41,13 +41,13 @@
         },
         {
             "comments": "Application Insights - named after Function App (note link to resource in tags)",
-            "type": "microsoft.insights/components",
-            "kind": "web",
+            "type": "Microsoft.Insights/components",
             "name": "[parameters('functionAppName')]",
-            "apiVersion": "2014-04-01",
+            "apiVersion": "2015-05-01",
             "location": "[resourceGroup().location]",
             "tags": {
-                "[concat('hidden-link:', resourceId('Microsoft.Web/sites', parameters('FunctionAppName')))]": "Resource"
+                "[concat('hidden-link:', resourceId('Microsoft.Web/sites', parameters('FunctionAppName')))]": "Resource",
+                "displayName": "AppInsightsComponent"
             },
             "scale": null,
             "properties": {
@@ -191,7 +191,7 @@
                 "httpLoggingEnabled": false,
                 "logsDirectorySizeLimit": 35,
                 "detailedErrorLoggingEnabled": false,
-                "publishingUsername": "$faas-test",
+                "publishingUsername": null,
                 "publishingPassword": null,
                 "appSettings": null,
                 "metadata": null,
