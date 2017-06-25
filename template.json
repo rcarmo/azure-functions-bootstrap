@@ -103,6 +103,10 @@
             "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
+                "tags": {
+                    "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', parameters('functionAppName')))]": "empty",
+                    "displayName": "Website"
+                },
                 "name": "[parameters('functionAppName')]",
                 "hostNames": [
                     "[concat(parameters('functionAppName'), '.azurewebsites.net')]"
