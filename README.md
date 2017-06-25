@@ -1,4 +1,14 @@
 
+This template deploys:
+
+* An Azure Functions App (Consuption/on-demand plan) with:
+  * A supporting storage account (for WebJob storage and your own queues)
+  * An Application Insights account
+
+## Post-Deployment Checklist:
+
+* Activate Application Insights
+
 ## Requirements
 
 * [Azure CLI 2.0][az]

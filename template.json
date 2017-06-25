@@ -54,7 +54,7 @@
                 "ApplicationId": "[parameters('functionAppName')]"
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('FunctionAppName'))]"
+                "[resourceId('Microsoft.Web/sites', parameters('functionAppName'))]"
             ]
         },
         {
@@ -67,7 +67,7 @@
             "kind": "Storage",
             "name": "[variables('storageAccountName')]",
             "apiVersion": "2016-01-01",
-            "location": "westeurope",
+            "location": "[resourceGroup().location]",
             "tags": {},
             "scale": null,
             "properties": {},
