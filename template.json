@@ -25,7 +25,7 @@
             "type": "Microsoft.Cache/Redis",
             "name": "[parameters('redisServerName')]",
             "apiVersion": "2016-04-01",
-            "location": "West Europe",
+            "location": "[resourceGroup().location]",
             "tags": {},
             "scale": null,
             "properties": {
@@ -92,7 +92,7 @@
             "kind": "functionapp",
             "name": "[parameters('functionAppName')]",
             "apiVersion": "2015-08-01",
-            "location": "West Europe",
+            "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
                 "name": "[parameters('functionAppName')]",
@@ -106,7 +106,7 @@
             "kind": "functionapp",
             "name": "[parameters('functionAppName')]",
             "apiVersion": "2015-08-01",
-            "location": "West Europe",
+            "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
                 "name": "[parameters('functionAppName')]",
@@ -167,11 +167,10 @@
             ]
         },
         {
-            "comments": "Generalized from resource: '/subscriptions/2ad6a97e-8b59-47f4-b487-96b1bc047b01/resourceGroups/manual-provisioning/providers/Microsoft.Web/sites/faas-test/config/web'.",
             "type": "Microsoft.Web/sites/config",
             "name": "[concat(parameters('functionAppName'),'/web')]",
             "apiVersion": "2015-08-01",
-            "location": "West Europe",
+            "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
                 "numberOfWorkers": 1,
