@@ -20,4 +20,4 @@ view-deployment:
 	--query "[].{OperationID:operationId,Name:properties.targetResource.resourceName,Type:properties.targetResource.resourceType,State:properties.provisioningState,Status:properties.statusCode}" --output table
 
 destroy:
-	az group delete --name $(RESOURCE_GROUP)
+	az group delete --name $(RESOURCE_GROUP) --no-wait

@@ -4,10 +4,12 @@ This template deploys:
 * An Azure Functions App (Consuption/on-demand plan) with:
   * A supporting storage account (for WebJob storage and your own queues)
   * An Application Insights account
+* A Redis instance (C0) for managing function state
 
 ## Post-Deployment Checklist:
 
-* Activate Application Insights
+* Check Application Insights activation
+* Get Git credentials from app
 
 ## Requirements
 
