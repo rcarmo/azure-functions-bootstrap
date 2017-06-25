@@ -43,6 +43,7 @@
             "comments": "Application Insights - named after Function App (note link to resource in tags)",
             "type": "Microsoft.Insights/components",
             "name": "[parameters('functionAppName')]",
+            "kind": "General",
             "apiVersion": "2015-05-01",
             "location": "[resourceGroup().location]",
             "tags": {
@@ -53,9 +54,7 @@
             "properties": {
                 "ApplicationId": "[parameters('functionAppName')]"
             },
-            "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('functionAppName'))]"
-            ]
+            "dependsOn": []
         },
         {
             "comments": "Storage for Function App (default webjob storage, and our queues)",
@@ -155,6 +154,10 @@
                         {
                             "name": "WEBSITE_NODE_DEFAULT_VERSION",
                             "value": "6.5.0"
+                        },
+                        {
+                            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+                            "value":  "[reference(resourceId('Microsoft.Insights/components', parameters('functionAppName')), '2014-04-01').InstrumentationKey]"
                         }
                     ]
                 }
@@ -171,7 +174,6 @@
             "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
-                "applicationInsightsInstrumentationKey": "[reference(resourceId('Microsoft.Insights/components', parameters('functionAppName')), '2014-04-01').InstrumentationKey]",
                 "numberOfWorkers": 1,
                 "defaultDocuments": [
                     "Default.htm",
@@ -278,8 +280,7 @@
                 "ipSecurityRestrictions": null
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('functionAppName'))]",
-                "[resourceId('Microsoft.Insights/components', parameters('functionAppName'))]"
+                "[resourceId('Microsoft.Web/sites', parameters('functionAppName'))]"
             ]
         }
     ]
