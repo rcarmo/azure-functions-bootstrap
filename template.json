@@ -45,7 +45,7 @@
             "kind": "web",
             "name": "[parameters('functionAppName')]",
             "apiVersion": "2014-04-01",
-            "location": "westeurope",
+            "location": "[resourceGroup().location]",
             "tags": {
                 "[concat('hidden-link:', resourceId('Microsoft.Web/sites', parameters('FunctionAppName')))]": "Resource"
             },
@@ -167,6 +167,7 @@
             "location": "[resourceGroup().location]",
             "scale": null,
             "properties": {
+                "applicationInsightsInstrumentationKey": "[reference(resourceId('Microsoft.Insights/components', parameters('functionAppName')), '2014-04-01').InstrumentationKey]",
                 "numberOfWorkers": 1,
                 "defaultDocuments": [
                     "Default.htm",
@@ -273,7 +274,8 @@
                 "ipSecurityRestrictions": null
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Web/sites', parameters('functionAppName'))]"
+                "[resourceId('Microsoft.Web/sites', parameters('functionAppName'))]",
+                "[resourceId('Microsoft.Insights/components', parameters('functionAppName'))]"
             ]
         }
     ]
