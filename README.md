@@ -6,10 +6,10 @@
 
 ## To Do:
 
-* [ ] Deploy Redis
-* [ ] Deploy Azure Function environment
-* [ ] Deploy Storage Account
-* [ ] Configure Azure Function environment settings
+* [x] Deploy Redis
+* [x] Deploy Azure Function environment
+* [x] Deploy Storage Account for queues (already part of webjob requirements)
+* [x] Configure Azure Function deployment settings
 * [ ] Deploy Cognitive Services Account
 
 ## References:

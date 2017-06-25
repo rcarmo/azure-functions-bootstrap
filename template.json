@@ -17,7 +17,7 @@
     },
     "variables": {
         "storageAccountName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]",
-        "storageAccountid": "[resourceId(resourceGroup().name, 'Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
+        "storageAccountid": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
     },
     "resources": [
         {
@@ -35,13 +35,7 @@
                     "family": "C",
                     "capacity": 0
                 },
-                "enableNonSslPort": false,
-                "redisConfiguration": {
-                    "maxclients": "256",
-                    "maxmemory-reserved": "2",
-                    "maxfragmentationmemory-reserved": "12",
-                    "maxmemory-delta": "2"
-                }
+                "enableNonSslPort": false
             },
             "dependsOn": []
         },
@@ -53,7 +47,7 @@
             "apiVersion": "2014-04-01",
             "location": "westeurope",
             "tags": {
-                "[concat('hidden-link:', resourceId(subscription().id, resourceGroup().name, 'Microsoft.Web/sites', parameters('FunctionAppName')))]": "Resource"
+                "[concat('hidden-link:', resourceId('Microsoft.Web/sites', parameters('FunctionAppName')))]": "Resource"
             },
             "scale": null,
             "properties": {
@@ -204,7 +198,7 @@
                 "machineKey": null,
                 "handlerMappings": null,
                 "documentRoot": null,
-                "scmType": "None",
+                "scmType": "LocalGit",
                 "use32BitWorkerProcess": true,
                 "webSocketsEnabled": false,
                 "alwaysOn": false,
