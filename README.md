@@ -2,7 +2,7 @@
 
 This template deploys:
 
-* An Azure Functions App (Consuption/on-demand plan) with:
+* An Azure Functions App (Consumption/on-demand plan) with:
   * A supporting storage account (for WebJob storage and your own queues)
   * An Application Insights account
 * A Redis instance (C0) for managing live function state
